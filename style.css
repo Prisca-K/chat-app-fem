@@ -47,12 +47,12 @@
 }
 
 body {
-  overflow-x: clip;
   background-color: var(--gray-100);
   font-family: var(--ff);
   font-weight: var(--fw-300);
   font-size: clamp(0.7rem, 0.5vw + 0.2rem, 0.9rem);
   text-wrap: pretty;
+  overflow-x: clip;
 }
 
 .booking-container {
@@ -283,7 +283,9 @@ body {
   text-align: center;
   z-index: 100;
   display: grid;
+  place-items: center;
   @media (width > 900px) {
+    justify-items: start;
     text-align: start;
   }
   h1 {
@@ -292,7 +294,7 @@ body {
   }
   p {
     font-size: 1rem;
-    max-width: 400px;
+    max-width: 90%;
     line-height: 1.5;
     color: var(--gray-500);
     @media (width > 900px) {
