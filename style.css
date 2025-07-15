@@ -1,0 +1,302 @@
+@font-face {
+  font-display: swap;
+  font-family: "Rubik";
+  font-style: normal;
+  font-weight: 400;
+  src: url("../fonts/rubik-v30-latin-regular.woff2") format("woff2");
+}
+@font-face {
+  font-display: swap;
+  font-family: "Rubik";
+  font-style: normal;
+  font-weight: 300;
+  src: url("/fonts/rubik-v30-latin-300.woff2") format("woff2");
+}
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --purple-300: hsl(276, 100%, 81%);
+  --purple-600: hsl(276, 55%, 52%);
+  --gray-500: hsl(270, 7%, 64%);
+  --gray-300: hsl(206, 6%, 79%);
+  --purple-950: hsl(271, 36%, 24%);
+
+  --pink-500: hsl(293, 100%, 63%);
+  --purple-500: hsl(264, 100%, 61%);
+
+  --white: hsl(0, 100%, 100%);
+  --transparent: hsla(270, 11%, 93%, 0.915);
+
+  --gray-100: hsl(270, 20%, 96%);
+  --purple-950: hsl(271, 36%, 24%);
+  --pink-400: hsl(289, 100%, 72%);
+  --gradient: linear-gradient(to top, hsl(264, 100%, 61%), hsl(293, 100%, 63%));
+  --gradient2: linear-gradient(25deg, hsl(264, 100%, 61%), hsl(293, 100%, 63%));
+
+  /* ff */
+  --ff: "Rubik", san-serif;
+  --fw-300: 300;
+  --fw-600: 600;
+}
+
+body {
+  overflow-x: clip;
+  background-color: var(--gray-100);
+  font-family: var(--ff);
+  font-weight: var(--fw-300);
+  font-size: clamp(0.7rem, 0.5vw + 0.2rem, 0.9rem);
+  text-wrap: pretty;
+}
+
+.booking-container {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 5rem;
+  padding-block: 5rem;
+  @media (width > 900px) {
+    padding-block: 0;
+    flex-direction: row;
+  }
+  &::before {
+    position: absolute;
+    content: "";
+    width: 70%;
+    height: 50%;
+    border-radius: 0 0 50% 50%;
+    left: -30%;
+    top: 0%;
+    background: var(--gradient);
+    @media (width > 900px) {
+      width: 45%;
+      height: 90%;
+      left: -15%;
+    }
+  }
+  &::after {
+    position: absolute;
+    content: "";
+    width: 70%;
+    height: 50%;
+    right: -30%;
+    bottom: 0%;
+    background: var(--transparent);
+    border-radius: 50% 50% 0 0;
+    @media (width > 900px) {
+      width: 45%;
+      height: 90%;
+      right: -15%;
+    }
+  }
+}
+
+.phone {
+  position: relative;
+  max-width: 300px;
+  height: max-content;
+  background-color: var(--gray-100);
+  border: 0.6rem solid var(--white);
+  border-radius: 2rem;
+  box-shadow: 0 0 5px 5px rgba(0, 0, 0, 0.1);
+  z-index: 100;
+  @media (width > 700px) {
+    min-width: 300px;
+  }
+  &::before {
+    position: absolute;
+    content: "";
+    width: 50%;
+    height: 1.5rem;
+    background-color: var(--white);
+    top: 1.5%;
+    border-radius: 0 0 1rem 1rem;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+}
+
+.header {
+  width: 100%;
+  padding: 2rem 0.5rem 0.5rem 0.5rem;
+  color: var(--white);
+  background: var(--gradient2);
+  border-radius: 2rem 2rem 0.5rem 0.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  .header__profile {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.2rem;
+    img {
+      width: 30px;
+      height: 30px;
+      object-fit: cover;
+      border-radius: 50%;
+      border: 2px solid var(--gray-300);
+    }
+  }
+
+  h2 {
+    font-size: clamp(0.9rem, 0.5vw + 0.2rem, 1rem);
+  }
+
+  p {
+    color: var(--purple-300);
+  }
+  .icon {
+    display: grid;
+    place-items: center;
+  }
+}
+
+.chat-section {
+  height: calc(100% - 5.5rem);
+  width: 100%;
+  position: relative;
+}
+
+.dog-images {
+  align-self: flex-end;
+  img {
+    width: 50px;
+    aspect-ratio: 1/1;
+    object-fit: cover;
+    border-radius: 0.8rem;
+  }
+}
+
+.chats {
+  font-weight: var(--fw-300);
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  height: 100%;
+  padding: 1rem 0.5rem;
+  .chat {
+    padding: 0.6rem 0.5rem;
+    background-color: var(--white);
+    max-width: 11.25rem;
+  }
+  .chat--sam {
+    background-color: var(--transparent);
+    color: var(--purple-600);
+    /* box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.1); */
+    border-radius: 0.8rem 0.8rem 0.8rem 0.4rem;
+  }
+  .chat--me {
+    align-self: flex-end;
+    color: var(--gray-500);
+    border-radius: 0.8rem 0.8rem 0.4rem 0.8rem;
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.1);
+  }
+  .card--sam {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    max-width: 13.5rem;
+    /* padding: 1rem; */
+    background: var(--gradient2);
+    color: var(--white);
+    border-radius: 0.8rem 0.8rem 0.8rem 0.4rem;
+    .price-tag {
+      width: calc(100% - 22px);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .value {
+      font-size: 1rem;
+      font-weight: var(--fw-600);
+    }
+    .radio {
+      width: 20px;
+      height: 20px;
+      border: 1px solid var(--pink-400);
+      border-radius: 50%;
+    }
+  }
+}
+
+.footer {
+  position: relative;
+  width: 100%;
+  left: 50%;
+  height: 2rem;
+  margin-block: 0.5rem;
+  z-index: 10;
+  transform: translateX(-50%);
+  display: grid;
+  place-items: center;
+  .input {
+    background: var(--white);
+    padding-right: 0.3rem;
+    width: 95%;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    border-radius: 5rem;
+    input {
+      font-family: inherit;
+      background: var(--white);
+      height: 100%;
+      padding-left: 1rem;
+      width: calc(100% - 2.5rem);
+      border: none;
+      outline: none;
+      border-radius: 5rem;
+      &::placeholder {
+        color: var(--gray-300);
+      }
+    }
+    button {
+      display: grid;
+      place-items: center;
+      background: var(--purple-950);
+      width: 1.875rem;
+      height: 1.875rem;
+      border-radius: 50%;
+      border: none;
+      cursor: pointer;
+      svg {
+        fill: var(--white);
+      }
+    }
+  }
+}
+
+.text-content {
+  text-align: center;
+  z-index: 100;
+  display: grid;
+  @media (width > 900px) {
+    text-align: start;
+  }
+  h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+  }
+  p {
+    font-size: 1rem;
+    max-width: 400px;
+    line-height: 1.5;
+    color: var(--gray-500);
+    @media (width > 900px) {
+      max-width: 500px;
+    }
+  }
+}
